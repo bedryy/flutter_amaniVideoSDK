@@ -1,0 +1,42 @@
+PODS:
+  - AmaniVideoSDK (2.0.1-xcode16):
+    - Socket.IO-Client-Swift (~> 16.1.0)
+    - WebRTC-lib (~> 135.0.0)
+  - Flutter (1.0.0)
+  - flutter_amanivideosdk (1.0.0):
+    - AmaniVideoSDK (= 2.0.1-xcode16)
+    - Flutter
+  - Socket.IO-Client-Swift (16.1.1):
+    - Starscream (~> 4.0.8)
+  - Starscream (4.0.8)
+  - WebRTC-lib (135.0.0)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - flutter_amanivideosdk (from `.symlinks/plugins/flutter_amanivideosdk/ios`)
+
+SPEC REPOS:
+  https://github.com/AmaniTechnologiesLtd/Mobile_SDK_Repo:
+    - AmaniVideoSDK
+  https://github.com/CocoaPods/Specs.git:
+    - Socket.IO-Client-Swift
+    - Starscream
+    - WebRTC-lib
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  flutter_amanivideosdk:
+    :path: ".symlinks/plugins/flutter_amanivideosdk/ios"
+
+SPEC CHECKSUMS:
+  AmaniVideoSDK: 67ed7f045d96b781faac14034a79d0427437cbd1
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  flutter_amanivideosdk: 16f46af1d984fd256e4abdc32e2b3824c7913b3c
+  Socket.IO-Client-Swift: 3614bea82ba005df1c2ff01154f4004993e05ad7
+  Starscream: 19b5533ddb925208db698f0ac508a100b884a1b9
+  WebRTC-lib: 915859aa1003b39fb5184897f62b3f15f128abb8
+
+PODFILE CHECKSUM: 68fc8a500ee5d825c4e8e3bf35d01a47641abd81
+
+COCOAPODS: 1.16.2
