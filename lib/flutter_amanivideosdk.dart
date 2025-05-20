@@ -12,5 +12,16 @@ class AmaniVideoSDK {
     return VideoSDK(_methodChannel);
   }
 
-  
+
+  Stream<dynamic> getDelegateStream() {
+    return delegateEventChannel.receiveBroadcastStream().map((event) => event);
+  }
+
+  void listenToEvents(Function(String) onEvent) {
+    delegateEventChannel.receiveBroadcastStream().listen((dynamic event) {
+      if (event is String) {
+        onEvent(event);
+      }
+    });
+  }
 }

@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 
 class VideoSDK {
   final MethodChannelAmaniVideoSDK _methodChannel;
-  final eventChannel = const EventChannel('amanisdk_event_channel');
+  final eventChannel = const EventChannel('amanivideosdk_event_channel');
 
   VideoSDK(this._methodChannel);
 
@@ -22,9 +22,13 @@ class VideoSDK {
     // required String turnUser,
     // required String turnPass,
 
-  Future<dynamic> startVideo(String? serverURL,  String? token,  String? name, String? surname, String? stunServer, String? turnServer,   String? turnUser, String? turnPass,) async {
-      final dynamic result =
-          await _methodChannel.startVideoSDK(serverURL: serverURL!, token: token!, name: name!, surname: surname!, stunServer: stunServer!, turnServer: turnServer!, turnUser: turnUser!, turnPass: turnPass!);
-          return result;
+  Future<dynamic> startVideo(String serverURL,  String token,  String name, String surname, String stunServer, String turnServer,   String turnUser, String turnPass,) async {
+      final dynamic result = await _methodChannel.startVideoSDK(serverURL: serverURL, token: token, name: name, surname: surname, stunServer: stunServer, turnServer: turnServer, turnUser: turnUser, turnPass: turnPass);
+         
+      return result;
     }
+
+  Future<void> setAmaniVideoDelegate() async {
+    await _methodChannel.setAmaniVideoDelegate();
+  }
 }

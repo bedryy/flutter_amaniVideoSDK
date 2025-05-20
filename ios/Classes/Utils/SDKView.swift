@@ -48,10 +48,29 @@ class SDKView: UIView {
 
   public func start(on vc: UIViewController) {
     DispatchQueue.main.async {
-      self.addSubview(self.nativeSdkView)
-      vc.view.addSubview(self)
-      vc.view.bringSubviewToFront(self.nativeSdkView)
-      vc.navigationController?.setNavigationBarHidden(true, animated: false)
+      // self.addSubview(self.nativeSdkView)
+      // vc.view.addSubview(self)
+      // vc.view.bringSubviewToFront(self.nativeSdkView)
+    self.translatesAutoresizingMaskIntoConstraints = false
+    self.nativeSdkView.translatesAutoresizingMaskIntoConstraints = false
+
+    vc.view.addSubview(self)
+    self.addSubview(self.nativeSdkView)
+
+    NSLayoutConstraint.activate([
+      self.topAnchor.constraint(equalTo: vc.view.topAnchor),
+      self.bottomAnchor.constraint(equalTo: vc.view.bottomAnchor),
+      self.leadingAnchor.constraint(equalTo: vc.view.leadingAnchor),
+      self.trailingAnchor.constraint(equalTo: vc.view.trailingAnchor)
+    ])
+
+    
+    NSLayoutConstraint.activate([
+      self.nativeSdkView.topAnchor.constraint(equalTo: self.topAnchor),
+      self.nativeSdkView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+      self.nativeSdkView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+      self.nativeSdkView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+    ])
     }
   }
 

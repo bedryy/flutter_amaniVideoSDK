@@ -35,4 +35,8 @@ abstract class AmaniVideoSDKPlatform extends PlatformInterface {
   }) {
     throw  UnimplementedError('startVideoSDK() has not been implemented.');
   }
+
+  Future<void> setAmaniVideoDelegate() {
+    throw UnimplementedError('setDelegate has not been setted.');
+  }
 }

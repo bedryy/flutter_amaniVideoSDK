@@ -4,6 +4,7 @@ import UIKit
 
 public class SwiftFlutterAmanivideosdkPlugin: NSObject, FlutterPlugin {
   var amaniVideo: AmaniVideo?
+  var flutterAmaniVideo: FlutterAmaniVideo?
   var methodChannel: FlutterMethodChannel!
   var delegateChannel: FlutterEventChannel!
   static var eventHandler = DelegateEventHandler()
@@ -25,39 +26,51 @@ public class SwiftFlutterAmanivideosdkPlugin: NSObject, FlutterPlugin {
     let arguments = call.arguments as? [String: Any]
     switch call.method {
     case "startVideo":
-    
      if let args = call.arguments as? [String: Any] {
+      self.flutterAmaniVideo = FlutterAmaniVideo()
         do {
           self.amaniVideo = try AmaniVideoBuilder()
-            .setServerURL(url: URL(string: args["server_url"] as! String)!)
+            .setServerURL(url: URL(string: args["serverUrl"] as! String)!)
             .setToken(token: args["token"] as! String)
             .setName(name: args["name"] as! String, surname: args["surname"] as! String)
             .setRemoteViewMode(viewMode: AmaniVideoSDK.AmaniVideo.ViewMode.portrait)
             .setRTCConfig(
-              stunServerURL: args["stun"] as! String,
-              turnServerURL: args["turn"] as! String,
-              turnUsername: args["turn_user"] as! String,
-              turnPassword: args["turn_pass"] as! String
+              stunServerURL: args["stunServer"] as! String,
+              turnServerURL: args["turnServer"] as! String,
+              turnUsername: args["turnUser"] as! String,
+              turnPassword: args["turnPass"] as! String
             )
             .setBackgroundViewColor(color: UIColor.darkGray)
             .setDelegate(delegate: SwiftFlutterAmanivideosdkPlugin.eventHandler)
             .build()
+        debugPrint("pluginde amaniVideo değişkeni değeri: \(self.amaniVideo)")
+        self.flutterAmaniVideo?.module = self.amaniVideo
+        
+        self.flutterAmaniVideo?.start(status: AmaniVideoSDK.CallStatus.waiting, result: result)
           
-          guard let vc = UIApplication.shared.windows.last?.rootViewController else {
-                result(FlutterError(code: "30001", message: "No root view controller", details: nil))
-                return
-          }
+        // if let videoView = try self.amaniVideo?.start(on: rootVC.view, status: AmaniVideoSDK.CallStatus.waiting) {
+        //       videoView.frame = rootVC.view.bounds
+        //       videoView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        //       rootVC.view.addSubview(videoView)
+        //   }
+        // rootVC.present(self, animated: true)
+        // try self.amaniVideo?.start(on: rootVC.view, status: AmaniVideoSDK.CallStatus.waiting) 
 
-          self.amaniVideo?.start(on: vc.view, status: AmaniVideoSDK.CallStatus.waiting)
+        
         } catch {
           print("AmaniVideo build error: \(error.localizedDescription)")
         }
       }
       result(nil)
+    case "setAmaniVideoDelegate":
+      setAmaniVideoDelegate(result: result)
     default:
       result(FlutterMethodNotImplemented)
     }
   }
 
+  private func setAmaniVideoDelegate(result: @escaping FlutterResult) {
+    amaniVideo?.setDelegate(SwiftFlutterAmanivideosdkPlugin.eventHandler)
+}
  
 }

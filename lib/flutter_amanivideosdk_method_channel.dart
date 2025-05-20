@@ -11,8 +11,8 @@ class MethodChannelAmaniVideoSDK extends AmaniVideoSDKPlatform {
 
   final methodChannel = const MethodChannel('amanivideosdk_method_channel');
   @override 
-  Future<void> startVideo({
-      required String serverUrl,
+  Future<dynamic> startVideoSDK({
+      required String serverURL,
       required String token,
       required String name,
       required String surname,
@@ -24,7 +24,7 @@ class MethodChannelAmaniVideoSDK extends AmaniVideoSDKPlatform {
       try {
         print("method channel tarafında plugine'e gidecek");
         await methodChannel.invokeMethod('startVideo', {
-          'serverUrl': serverUrl,
+          'serverUrl': serverURL,
           'token': token,
           'name': name,
           'surname': surname,
@@ -37,4 +37,9 @@ class MethodChannelAmaniVideoSDK extends AmaniVideoSDKPlatform {
         rethrow;
       }
     }
+
+   @override
+   Future<void> setAmaniVideoDelegate() async {
+    await methodChannel.invokeMethod('setAmaniVideoDelegate');
+   }
 }
