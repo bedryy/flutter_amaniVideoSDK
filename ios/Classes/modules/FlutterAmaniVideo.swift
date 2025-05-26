@@ -10,11 +10,11 @@ import Flutter
 import UIKit
 
 class FlutterAmaniVideo {
-    var module: AmaniVideo?
-    private var sdkView: SDKView!
+  var module: AmaniVideo?
+  private var sdkView: SDKView!
 
 
-   public init() {
+    init() {
 
     }
 
@@ -31,14 +31,12 @@ class FlutterAmaniVideo {
             return
           }
           let moduleView: UIView = modul.start(on: vc.view, status: status)
-          debugPrint("moduleView geldi: \(moduleView.superview?.frame)")
-            DispatchQueue.main.async {
-            self.sdkView.removeFromSuperview()
-            }
+          
+           
 
             sdkView = SDKView(sdkView: moduleView)
             sdkView.start(on: vc)
-            // sdkView.setupBackButton(on: moduleView)
+            sdkView.setupBackButton(on: moduleView)
 
         } catch let err {
             result(FlutterError(code: "30007", message: err.localizedDescription, details: nil))
@@ -57,12 +55,18 @@ class FlutterAmaniVideo {
     }
 
     public func switchCamera(result: @escaping FlutterResult) {
+      
       module?.switchCamera()
         result(nil)
     }
 
-    public func closeSDK(result: @escaping FlutterResult) {
-        module?.closeSDK()
-        result(nil)
+    public func closeSDK() {
+      
+      DispatchQueue.main.async {
+       self.module?.closeSDK()
+      }
+      
+      
+     
     }
 }

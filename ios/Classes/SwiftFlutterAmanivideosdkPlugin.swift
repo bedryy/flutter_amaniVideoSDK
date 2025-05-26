@@ -64,6 +64,20 @@ public class SwiftFlutterAmanivideosdkPlugin: NSObject, FlutterPlugin {
       result(nil)
     case "setAmaniVideoDelegate":
       setAmaniVideoDelegate(result: result)
+    case "switchCamera":
+      self.flutterAmaniVideo = FlutterAmaniVideo()
+      self.flutterAmaniVideo?.module = self.amaniVideo
+      self.flutterAmaniVideo?.switchCamera(result: result)
+
+    case "closeSDK":
+      self.flutterAmaniVideo = FlutterAmaniVideo()
+      self.flutterAmaniVideo?.module = self.amaniVideo
+      self.flutterAmaniVideo?.closeSDK()
+    case "toggleTorch":
+      self.flutterAmaniVideo = FlutterAmaniVideo()
+      self.flutterAmaniVideo?.module = self.amaniVideo
+      self.flutterAmaniVideo?.toggleTorch(result: result)
+
     default:
       result(FlutterMethodNotImplemented)
     }

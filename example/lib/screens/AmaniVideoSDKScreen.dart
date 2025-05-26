@@ -1,7 +1,12 @@
+import 'dart:async';
+import '../main.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_amanivideosdk/flutter_amanivideosdk.dart';
 import 'package:flutter_amanivideosdk/modules/amani_video.dart';
 import 'package:flutter_amanivideosdk/flutter_amanivideosdk_method_channel.dart';
+import 'package:flutter_amanivideosdk/amani_VideoHandler.dart';
+import 'package:flutter_amanivideosdk/flutter_amanivideosdk.dart';
 // import 'package:flutter_amanisdk/amani_sdk.dart';
 // import 'package:flutter_amanisdk/common/models/api_version.dart';
 
@@ -18,22 +23,78 @@ class _AmaniVideoSDKScreenState extends State<AmaniVideoSDKScreen> {
 
   final VideoSDK _videoSDKModule = AmaniVideoSDK().getAmaniVideo();
 
-  Future<void> setupVideoBuilder() async {
-    _videoSDKModule.startVideo("setServerURL", 
-                               "token",
-                               "Name", 
-                               "Surname", 
-                               "stunserver",
-                               "turnserver", 
-                               "st_user", 
-                               "st_pass");
+  
+  static const EventChannel _videoEventChannel = EventChannel('amanivideosdk_delegate_channel');
 
-  }
+  StreamSubscription? _videoStreamSubscription;
 
   @override
   void initState() {
     super.initState();
     
+    _videoStreamSubscription = _videoEventChannel.receiveBroadcastStream().listen(_handleNativeEvent);
+  }
+
+  void _handleNativeEvent(dynamic event) {
+    debugPrint("Native Event: $event");
+
+    if (event == "camera_switch_requested") {
+      _videoSDKModule.switchCamera();
+    } else if (event == "torch_toggle_requested") {
+      _videoSDKModule.toggleTorch();
+    } else if (event == "call_end") {
+      _videoSDKModule.closeSDK();
+      
+    }
+  }
+
+//   void _showCameraSwitchDialog() {
+//   final ctx = navigatorKey.currentContext;
+
+//   debugPrint("AmaniVideoScreen showcamera func içi ctx::::: $ctx");
+//   if (ctx == null) return;
+
+//   showDialog(
+//     context: ctx,
+//     builder: (context) => AlertDialog(
+//       title: const Text("Camera Switch Request"),
+//       content: const Text("Agent is requesting a camera switch. Allow?"),
+//       actions: [
+//         TextButton(
+//           onPressed: () {
+//             Navigator.of(context).pop();
+//             _videoSDKModule.switchCamera(); // Flutter method that triggers native switch
+//           },
+//           child: const Text("Allow"),
+//         ),
+//         TextButton(
+//           onPressed: () {
+//             Navigator.of(context).pop();
+//           },
+//           child: const Text("Deny"),
+//         ),
+//       ],
+//     ),
+//   );
+// }
+
+
+  @override
+  void dispose() {
+    _videoStreamSubscription?.cancel();
+    super.dispose();
+  }
+  Future<void> setupVideoBuilder() async {
+    _videoSDKModule.startVideo("server_url", 
+                               "token",
+                               "name", 
+                               "surname", 
+                               "stunserver",
+                               "turnserver", 
+                               "st_user", 
+                               "st_password");
+    _videoSDKModule.setAmaniVideoDelegate();
+
   }
 
   Future<bool> onWillPop() async {
@@ -44,6 +105,7 @@ class _AmaniVideoSDKScreenState extends State<AmaniVideoSDKScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: deprecated_member_use
     return WillPopScope(
       onWillPop: onWillPop,
       child: Scaffold(
@@ -65,5 +127,7 @@ class _AmaniVideoSDKScreenState extends State<AmaniVideoSDKScreen> {
         ),
       ),
     );
-  }
+    }
 }
+  
+

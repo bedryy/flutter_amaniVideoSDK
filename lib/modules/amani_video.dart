@@ -13,15 +13,6 @@ class VideoSDK {
 
   VideoSDK(this._methodChannel);
 
-    // required String serverURL,
-    // required String token,
-    // required String name,
-    // required String surname,
-    // required String stunServer,
-    // required String turnServer,
-    // required String turnUser,
-    // required String turnPass,
-
   Future<dynamic> startVideo(String serverURL,  String token,  String name, String surname, String stunServer, String turnServer,   String turnUser, String turnPass,) async {
       final dynamic result = await _methodChannel.startVideoSDK(serverURL: serverURL, token: token, name: name, surname: surname, stunServer: stunServer, turnServer: turnServer, turnUser: turnUser, turnPass: turnPass);
          
@@ -30,5 +21,17 @@ class VideoSDK {
 
   Future<void> setAmaniVideoDelegate() async {
     await _methodChannel.setAmaniVideoDelegate();
+  }
+
+  Future<void> switchCamera() async {
+    await _methodChannel.switchCamera();
+  }
+
+  Future<void> toggleTorch() async {
+    await _methodChannel.toggleTorch();
+  }
+
+  Future<void> closeSDK() async {
+    await _methodChannel.closeSDK();
   }
 }

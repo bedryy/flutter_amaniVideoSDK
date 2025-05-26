@@ -42,4 +42,20 @@ class MethodChannelAmaniVideoSDK extends AmaniVideoSDKPlatform {
    Future<void> setAmaniVideoDelegate() async {
     await methodChannel.invokeMethod('setAmaniVideoDelegate');
    }
+
+   @override
+   Future<void> switchCamera() async {
+    await methodChannel.invokeMethod("switchCamera");
+   }
+
+   @override
+   Future<void> toggleTorch() async {
+    await methodChannel.invokeMethod("toggleTorch");
+   }
+
+   @override
+   Future<void> closeSDK() async {
+    await methodChannel.invokeMethod("closeSDK");
+   }
+
 }
