@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_INJECTED_CODE" value="false" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="70c89357-8644-4ed0-a9ad-ed400160fff3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/version" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/version" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/ai/amani/flutter_amanivideosdk/modules/AutoSelfie.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/ai/amani/flutter_amanivideosdk/modules/BioLogin.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/ai/amani/flutter_amanivideosdk/modules/DocumentCapture.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/ai/amani/flutter_amanivideosdk/modules/Extentions.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/ai/amani/flutter_amanivideosdk/modules/IdCapture.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/ai/amani/flutter_amanivideosdk/modules/Module.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/ai/amani/flutter_amanivideosdk/modules/NFC.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/ai/amani/flutter_amanivideosdk/modules/PoseEstimation.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/ai/amani/flutter_amanivideosdk/modules/Selfie.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/ai/amani/flutter_amanivideosdk/modules/config_models/AutoSelfieSettings.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/ai/amani/flutter_amanivideosdk/modules/config_models/PoseEstimationSettings.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/res/drawable/baseline_close_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/res/drawable/pose_esitmation_main_guide_left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/res/drawable/pose_estimation_main_guide_down.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/res/drawable/pose_estimation_main_guide_right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/res/drawable/pose_estimation_main_guide_straight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/res/drawable/pose_estimation_main_guide_up.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/res/drawable/pose_estimation_secondary_guide_down.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/res/drawable/pose_estimation_secondary_guide_left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/res/drawable/pose_estimation_secondary_guide_right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/res/drawable/pose_estimation_secondary_guide_up.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/app/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/app/src/main/kotlin/com/example/example/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/screens/AmaniVideoSDKScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/screens/AmaniVideoSDKScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/macos/Podfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/android/build/generated/data_binding_trigger/debug/ai/amani/flutter_amanisdk/DataBindingTriggerClass.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2xix8Y7iP00j6PyPCPF23c8gmtY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Flutter.main.dart.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "build-android",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/bbedry/Desktop/AmaniAi/flutter_amaniVideoSDK",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "show.migrate.to.gradle.popup": "false"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="filePath" value="$PROJECT_DIR$/example/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="70c89357-8644-4ed0-a9ad-ed400160fff3" name="Changes" comment="" />
+      <created>1748434536797</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1748434536797</updated>
+    </task>
+    <servers />
+  </component>
+</project>

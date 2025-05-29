@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_amanivideosdk/flutter_amanivideosdk.dart';
 import 'package:flutter_amanivideosdk/modules/amani_video.dart';
 import 'package:flutter_amanivideosdk/flutter_amanivideosdk_method_channel.dart';
-import 'package:flutter_amanivideosdk/amani_VideoHandler.dart';
 import 'package:flutter_amanivideosdk/flutter_amanivideosdk.dart';
 // import 'package:flutter_amanisdk/amani_sdk.dart';
 // import 'package:flutter_amanisdk/common/models/api_version.dart';

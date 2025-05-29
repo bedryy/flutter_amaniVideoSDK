@@ -12,46 +12,40 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
+import android.content.Context
+import android.Manifest
+import android.content.pm.PackageManager
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+
+
 
 
 /** FlutterAmanisdkPlugin */
 class FlutterAmanivideosdkPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
-  /// The MethodChannel that will the communication between Flutter and native Android
-  ///
-  /// This local reference serves to register the plugin with the Flutter Engine and unregister it
-  /// when the Flutter Engine is detached from the Activity
-  private lateinit var channel: MethodChannel
-  private lateinit var nfcChannel: MethodChannel
-  private lateinit var bioLoginChannel: MethodChannel
-  private lateinit var delegateChannel: EventChannel
-  // Give this reference to other modules e.g IdCapture when init.
-  private var activity: Activity? = null
+ private lateinit var channel: MethodChannel
+    private var activity: Activity? = null
 
-  override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "amanisdk_method_channel")
-    channel.setMethodCallHandler(this)
+    override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
+        channel = MethodChannel(binding.binaryMessenger, "amani_video_plugin")
+        channel.setMethodCallHandler(this)
+    }
 
-    // Channels below is created due to usage of the different call handlers of different classes on
-    // dart side
-    nfcChannel = MethodChannel(flutterPluginBinding.binaryMessenger, "amanisdk_nfc_channel")
-    bioLoginChannel = MethodChannel(flutterPluginBinding.binaryMessenger, "amanisdk_biologin_channel")
-    // Event channel goes brr
-    delegateChannel = EventChannel(flutterPluginBinding.binaryMessenger, "amanisdk_delegate_channel")
-    delegateChannel.setStreamHandler(AmaniDelegateEventHandler())
-  }
-
-  override fun onMethodCall(call: MethodCall, result: Result) {
-
-    when (call.method) {
-      "initAmani" -> {
-     
-        activity?.runOnUiThread {
-         
+    override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
+        if (call.method == "startVideo") {
+            startVideoCapture()
+            result.success(null)
+        } else {
+            result.notImplemented()
         }
-      }
-      
-  }
-  }
+    }
+
+    private fun startVideoCapture() {
+        activity?.let {
+            // Amani SDK fonksiyonu burada çağrılır
+            VideoSDK.startVideoSession(it)
+        }
+    }
 
   override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
     channel.setMethodCallHandler(null)
