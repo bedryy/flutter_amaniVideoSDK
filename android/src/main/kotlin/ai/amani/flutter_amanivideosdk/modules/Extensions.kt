@@ -1,16 +1,17 @@
-package ai.amani.flutter_amanisdk.modules
-
+package ai.amani.flutter_amanivideosdk
 import android.app.Activity
 import android.widget.*
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
-import com.google.gson.Gson
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+// import com.google.gson.Gson
 
-interface JSONConvertable {
-    fun toJSON(): String = Gson().toJson(this)
-}
+// interface JSONConvertable {
+//     fun toJSON(): String = Gson().toJson(this)
+// }
 
-inline fun <reified T: JSONConvertable> String.toObject(): T = Gson().fromJson(this, T::class.java)
+// inline fun <reified T: JSONConvertable> String.toObject(): T = Gson().fromJson(this, T::class.java)
 
 
 fun Activity.logToast(message: String) {
@@ -52,4 +53,21 @@ fun FrameLayout.setupBackButton(@DrawableRes drawable: Int, onClick: () -> Unit 
 
     this.addView(button)
     return button
+}
+
+fun FragmentActivity.replaceFragment(containerViewId: Int, fragment: Fragment?) {
+    fragment?.let {
+        this.supportFragmentManager.beginTransaction()
+            .addToBackStack(it.javaClass.name)
+            .replace(containerViewId, it)
+            .commit()
+    }
+}
+
+fun FragmentActivity.removeFragment(fragment: Fragment?) {
+    fragment?.let {
+        this.supportFragmentManager.beginTransaction()
+            .remove(it)
+            .commit()
+    }
 }
